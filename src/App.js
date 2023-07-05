@@ -35,20 +35,7 @@ function App() {
         setModal(!modal);
     };
 
-    const [date, setDate] = useState([])
-    useEffect(()=>{
-        // let limite = data.slice(0, 20)
-        fetch('https://restcountries.com/v3.1/all')
-        .then((resp)=> resp.json())
-        .then(data => {
-            
-           
-           setDate(data)
-        
-        })
-            
-        
-    },[])
+
   return (
     
     <div className="App"> 
