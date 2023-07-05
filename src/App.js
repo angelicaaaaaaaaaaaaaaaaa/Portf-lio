@@ -12,6 +12,7 @@ import site from './images/pçao.png'
 import htmlfoto from './images/html.png'
 import cssfoto from './images/css.png'
 import jsfoto from './images/jv.png'
+import MeuMapa from './MeuMapa';
 
 // import MyForm from './Mensagem.js'; 
 
@@ -33,6 +34,21 @@ function App() {
     const abrirModal = () => {
         setModal(!modal);
     };
+
+    const [date, setDate] = useState([])
+    useEffect(()=>{
+        // let limite = data.slice(0, 20)
+        fetch('https://restcountries.com/v3.1/all')
+        .then((resp)=> resp.json())
+        .then(data => {
+            
+           
+           setDate(data)
+        
+        })
+            
+        
+    },[])
   return (
     
     <div className="App"> 
@@ -112,7 +128,11 @@ function App() {
               
             
         </div>
-      
+      <div id='pais'  className='pais'>
+                    <MeuMapa></MeuMapa>
+                  
+        
+       </div>
     </div>
   );
 }
